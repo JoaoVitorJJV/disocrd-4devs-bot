@@ -1,20 +1,47 @@
 import { SlashCommandBuilder } from "discord.js";
+import { Configuration, OpenAIApi } from "openai";
 
-const instance = new SlashCommandBuilder()
+const jsHelper = async (query) => {
+    const config = new Configuration({
+        apiKey: process.env.OPEN_AI_TOKEN
+    })
 
-instance.setName('perguntar')
-    .setDescription('Faça perguntas sobre códigos em JavaScript, conehcimentos gerais.')
+    const openai = new OpenAIApi(config)
 
-const execute = async (interaction) => {
-    await interaction.reply('Pong!')
+    const response = await openai.createCompletion({
+        model: "code-davinci-002",
+        prompt: query,
+        temperature: 0,
+        max_tokens: 120,
+        top_p: 1.0,
+        frequency_penalty: 0.5,
+        presence_penalty: 0.0,
+        stop: ["You:"],
+    })
+
+    return response.data
 }
 
-const dataPings = {
-    name: 'Perguntas',
-    description: 'Faça perguntas sobre códigos em JavaScript, conehcimentos gerais.',
-    execute: async (interaction) => {
-        await interaction.reply('Pong!');
+
+const dataPerguntar = {
+    data: new SlashCommandBuilder()
+        .setName('js')
+        .setDescription('Faça perguntas sobre códigos em JavaScript, entre outras.')
+        .addStringOption(option =>
+            option.setName("prompt")
+                .setDescription("Faça sua pergunta...")
+                .setRequired(true)),
+    async execute(interaction) {
+        try {
+            await interaction.deferReply();
+            const input = interaction.options.getString("prompt")
+            const res = await jsHelper(input)
+            await interaction.editReply('Resposta: ' + res.choices[0].text.replace(/<code>/g, '```').replace(/<\/code>/g, '```').replace(/\+/g, ''));
+        } catch (error) {
+            console.error(error);
+            //await interaction.reply('Ocorreu um erro ao tentar processar sua pergunta.');
+        }
     }
 }
 
-// export default dataPings
+export default dataPerguntar

@@ -22,6 +22,14 @@ const dataHelp = {
                 { name: '\n', value: '\n' },
                 { name: '/commits', value: 'Exibe os últimos 25 commits do repositório.' },
                 { name: '\n', value: '\n' },
+                { name: '/js', value: 'Faça qualquer pergunta sobre JavaScript.' },
+                { name: '\n', value: '\n' },
+                { name: '/estudar', value: 'Exibe tópicos para você estudar a cerca de determinado assunto.' },
+                { name: '\n', value: '\n' },
+                { name: '/hex-cor', value: 'Exibe cores em hexadecimal ou traduz o nome de cores. Para exibir em hexadecimal, você pode escrever: background-color: #.' },
+                { name: '\n', value: '\n' },
+                { name: '/sql', value: 'Faça perguntas sobre SQL, como raw queries, criação de tabelas e muito mais.' },
+                { name: '\n', value: '\n' },
             )
             .setFooter({ text: 'Bot criado por João Vitor', iconURL: 'https://avatars.githubusercontent.com/u/77819780?v=4' });
         await interaction.reply({ embeds: [embed] });

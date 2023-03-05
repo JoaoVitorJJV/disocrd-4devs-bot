@@ -2,8 +2,12 @@
 import {REST, Routes} from "discord.js"
 import dataPings from "./commands/ping.js";
 import dataCommits from "./commands/commits.js";
-import * as dotenv from "dotenv"
+import dataPerguntar from "./commands/perguntar.js";
 import dataHelp from "./commands/help.js";
+import dataHexa from "./commands/hexadecimalColors.js";
+import dataSQL from "./commands/sqlDuvidas.js";
+import * as dotenv from "dotenv"
+import dataEstudo from "./commands/noteForStudy.js";
 dotenv.config()
 
 const commands = [];
@@ -11,6 +15,10 @@ const commands = [];
 commands.push(dataPings.data.toJSON())
 commands.push(dataCommits.data.toJSON())
 commands.push(dataHelp.data.toJSON())
+commands.push(dataPerguntar.data.toJSON())
+commands.push(dataSQL.data.toJSON())
+commands.push(dataHexa.data.toJSON())
+commands.push(dataEstudo.data.toJSON())
 
 // Construct and prepare an instance of the REST module
 const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
