@@ -36,7 +36,7 @@ client.on(Events.ClientReady, c => {
     console.log(`Ready! Logged in as ${c.user.tag}`)
     c.user.setPresence({
         activities: [{
-            name: "Valorant | /help",
+            name: "VALORANT | /help",
         }],
         status: "online"
     })
