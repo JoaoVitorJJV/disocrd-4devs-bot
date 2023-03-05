@@ -1,4 +1,5 @@
 import { Client, Events, GatewayIntentBits, Collection } from "discord.js";
+import "./keep_alive.js"
 import * as dotenv from "dotenv"
 import dataCommits from "./src/commands/commits.js";
 import dataHelp from "./src/commands/help.js";
