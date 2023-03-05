@@ -1,0 +1,25 @@
+{
+  "name": "discord-bot-",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run register-cmd && node index.js",
+    "dev": "nodemon src/deploy-commands.js",
+    "register-cmd": "node src/deploy-commands.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "nodemon": "^2.0.21",
+    "octokit": "^2.0.14",
+    "openai": "^3.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
