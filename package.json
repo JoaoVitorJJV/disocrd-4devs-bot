@@ -18,7 +18,9 @@
     "discord.js": "^14.7.1",
     "nodemon": "^2.0.21",
     "octokit": "^2.0.14",
-    "openai": "^3.2.1",
+    "openai": "^3.2.1"
+  },
+  "devDependencies": {
     "dotenv": "^16.0.3"
   }
 }
