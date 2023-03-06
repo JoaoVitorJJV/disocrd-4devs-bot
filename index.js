@@ -1,7 +1,7 @@
 import { Client, Events, GatewayIntentBits, Collection } from "discord.js";
 import "./keep_alive.js"
 import * as dotenv from "dotenv"
-import dataCommits from "./src/commands/commits.js";
+import dataCommits from "./src/commands/github/commits.js";
 import dataHelp from "./src/commands/help.js";
 import dataHexa from "./src/commands/hexadecimalColors.js";
 import dataEstudo from "./src/commands/noteForStudy.js";
@@ -9,6 +9,8 @@ import dataPerguntar from "./src/commands/perguntar.js";
 import dataPings from "./src/commands/ping.js";
 import dataSQL from "./src/commands/sqlDuvidas.js";
 import { getCommitsAllTime, getCommits } from "./src/github_api/getCommits.js";
+import dataCollaborator from "./src/commands/github/addCollaborator.js";
+import dataRemoveColaborator from "./src/commands/github/removeCollaborator.js";
 
 dotenv.config()
 
@@ -52,6 +54,8 @@ client.commands.set(dataPerguntar.data.name, dataPerguntar)
 client.commands.set(dataSQL.data.name, dataSQL)
 client.commands.set(dataHexa.data.name, dataHexa)
 client.commands.set(dataEstudo.data.name, dataEstudo)
+client.commands.set(dataCollaborator.data.name, dataCollaborator)
+client.commands.set(dataRemoveColaborator.data.name, dataRemoveColaborator)
 
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
