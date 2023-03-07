@@ -30,6 +30,10 @@ const dataHelp = {
                 { name: '\n', value: '\n' },
                 { name: '/sql', value: 'Faça perguntas sobre SQL, como raw queries, criação de tabelas e muito mais.' },
                 { name: '\n', value: '\n' },
+                { name: '/adc_colaborador', value: 'Adiciona um colaborador ao repositório'},
+                { name: '\n', value: '\n' },
+                { name: '/rem_colaborador', value: 'Remove um colaborador de um repositório'},
+                { name: '\n', value: '\n' },
             )
             .setFooter({ text: 'Bot criado por João Vitor', iconURL: 'https://avatars.githubusercontent.com/u/77819780?v=4' });
         await interaction.reply({ embeds: [embed] });
