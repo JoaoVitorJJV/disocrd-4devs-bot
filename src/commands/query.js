@@ -24,7 +24,7 @@ const jsHelper = async (query) => {
 
 const dataQuery = {
     data: new SlashCommandBuilder()
-        .setName('/perguntar')
+        .setName('perguntar')
         .setDescription('Pergunte qualquer coisa (beta)')
         .addStringOption(option =>
             option.setName("prompt")
