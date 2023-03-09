@@ -24,7 +24,7 @@ const dataHelp = {
                 { name: '\n', value: '\n' },
                 { name: '/js', value: 'Faça qualquer pergunta sobre JavaScript.' },
                 { name: '\n', value: '\n' },
-                { name: '/estudar', value: 'Exibe tópicos para você estudar a cerca de determinado assunto.' },
+                { name: '/perguntar', value: 'Pergunte qualquer coisa para o Bot, ele irá responder (beta)' },
                 { name: '\n', value: '\n' },
                 { name: '/hex-cor', value: 'Exibe cores em hexadecimal ou traduz o nome de cores. Para exibir em hexadecimal, você pode escrever: background-color: #.' },
                 { name: '\n', value: '\n' },

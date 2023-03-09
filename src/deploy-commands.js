@@ -7,7 +7,7 @@ import dataHexa from "./commands/hexadecimalColors.js";
 import dataSQL from "./commands/sqlDuvidas.js";
 import dataCollaborator from "./commands/github/addCollaborator.js";
 import * as dotenv from "dotenv"
-import dataEstudo from "./commands/noteForStudy.js";
+import dataQuery from "./commands/query.js";
 import dataRemoveColaborator from "./commands/github/removeCollaborator.js";
 import dataSobre from "./commands/sobre.js";
 dotenv.config()
@@ -21,7 +21,7 @@ commands.push(dataHelp.data.toJSON())
 commands.push(dataPerguntar.data.toJSON())
 commands.push(dataSQL.data.toJSON())
 commands.push(dataHexa.data.toJSON())
-commands.push(dataEstudo.data.toJSON())
+commands.push(dataQuery.data.toJSON())
 commands.push(dataCollaborator.data.toJSON())
 commands.push(dataRemoveColaborator.data.toJSON())
 commands.push(dataSobre.data.toJSON())

@@ -12,7 +12,7 @@ const jsHelper = async (query) => {
         model: "text-davinci-003",
         prompt: query,
         temperature: 0.3,
-        max_tokens: 250,
+        max_tokens: 400,
         top_p: 1.0,
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
@@ -22,10 +22,10 @@ const jsHelper = async (query) => {
 }
 
 
-const dataEstudo = {
+const dataQuery = {
     data: new SlashCommandBuilder()
-        .setName('estudar')
-        .setDescription('Exibe os tópicos que você precisa estudar sobre determinado assunto..')
+        .setName('/perguntar')
+        .setDescription('Pergunte qualquer coisa (beta)')
         .addStringOption(option =>
             option.setName("prompt")
                 .setDescription("Faça sua pergunta...")
@@ -43,4 +43,4 @@ const dataEstudo = {
     }
 }
 
-export default dataEstudo
+export default dataQuery

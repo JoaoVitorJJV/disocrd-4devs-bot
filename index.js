@@ -4,7 +4,7 @@ import * as dotenv from "dotenv"
 import dataCommits from "./src/commands/github/commits.js";
 import dataHelp from "./src/commands/help.js";
 import dataHexa from "./src/commands/hexadecimalColors.js";
-import dataEstudo from "./src/commands/noteForStudy.js";
+import dataQuery from "./src/commands/query.js";
 import dataPerguntar from "./src/commands/perguntar.js";
 import dataPings from "./src/commands/ping.js";
 import dataSQL from "./src/commands/sqlDuvidas.js";
@@ -55,7 +55,7 @@ client.commands.set(dataHelp.data.name, dataHelp)
 client.commands.set(dataPerguntar.data.name, dataPerguntar)
 client.commands.set(dataSQL.data.name, dataSQL)
 client.commands.set(dataHexa.data.name, dataHexa)
-client.commands.set(dataEstudo.data.name, dataEstudo)
+client.commands.set(dataQuery.data.name, dataEstudo)
 client.commands.set(dataCollaborator.data.name, dataCollaborator)
 client.commands.set(dataRemoveColaborator.data.name, dataRemoveColaborator)
 client.commands.set(dataSobre.data.name, dataSobre)

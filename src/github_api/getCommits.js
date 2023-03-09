@@ -32,8 +32,8 @@ export const getCommitsAllTime = async (lastCommit, client) => {
         const embed = new EmbedBuilder()
             .setTitle("🚨 COMMIT DETECTADO! 🚨")
             .setFields({
-                name: '\u200B',
-                value: '\u200B',
+                name: '\n',
+                value: '\n',
             })
             .setColor(0xFFFFFF)
             .setAuthor({
