@@ -33,14 +33,18 @@ const dataSQL = {
                 .setRequired(true)),
     async execute(interaction) {
         try {
-            await interaction.deferReply();
             const input = interaction.options.getString("prompt")
+            await interaction.reply(`Pergunta: **${input}** - Aguardando resposta...`);
             const res = await jsHelper(input)
-            console.log(res)
-            await interaction.editReply('Resposta: ' + res.choices[0].text.replace(/<code>/g, '```').replace(/<\/code>/g, '```').replace(/\+/g, ''));
+            if (res.error){
+                await interaction.followUp('Ocorreu um erro ao tentar processar sua pergunta.');
+            }else{
+                await interaction.followUp('Resposta: ' + res.choices[0].text.replace(/<code>/g, '```').replace(/<\/code>/g, '```').replace(/\+/g, ''));
+            }
+            
         } catch (error) {
             console.error(error);
-            //await interaction.reply('Ocorreu um erro ao tentar processar sua pergunta.');
+            await interaction.reply('Ocorreu um erro ao tentar processar sua pergunta.');
         }
     }
 }
