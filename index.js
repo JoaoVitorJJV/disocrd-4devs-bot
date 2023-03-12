@@ -112,23 +112,33 @@ client.on(Events.GuildMemberAdd, async member => {
             name: member.displayName,
             iconURL: member.displayAvatarURL()
         })
-        .setDescription("**Bem vindo, Novo Membro, clique nos botões abaixo para escolher a sua área de atuação!**")
+        .setDescription(`**Bem vindo, ${member.displayName}, clique nos botões abaixo para escolher a sua área de atuação!**`)
         .setImage("https://i.imgur.com/bVSdSmN.jpg")
 
     const serverRoles = member.guild.roles.cache
-    const actionRow = new ActionRowBuilder()
+    const actionRows = []
+
+    let currentRow = new ActionRowBuilder()
     for (const role of serverRoles.values()) {
-        if (role.name !== "Organização- Canal")
-            actionRow.addComponents(
+        if (role.name == "Front-End" || role.name == "Back-End" || role.name == "Full-Stack") {
+            currentRow.addComponents(
                 new ButtonBuilder()
                     .setCustomId(role.id)
                     .setLabel(role.name)
                     .setStyle(ButtonStyle.Primary)
             )
-    }
-    buttons.push(actionRow)
 
-    await client.channels.cache.get("1081028954556727337").send({ embeds: [embed], components: buttons })
+            if (currentRow.components.length === 5) {
+                actionRows.push(currentRow)
+                currentRow = new ActionRowBuilder()
+            }
+        }
+    }
+    if (currentRow.components.length > 0) {
+        actionRows.push(currentRow)
+    }
+
+    await client.channels.cache.get("1081028954556727337").send({ embeds: [embed], components: actionRows })
 
 })
 
